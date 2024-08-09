@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+
+
+.bcontainer img{
+    width:200px;
+
+   
+}
+
+.first{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left:20px;
+    padding-right: 20px;
+    color:blue;
+    font-weight: 600;
+    
+}
+
+.container{
+    background-color: rgb(182, 177, 177);
+    display:flex;
+    flex-direction:row;
+    gap:56px;
+    justify-content: flex-end;
+    padding:4px;
+    padding-right:40px;
+    font-weight: 600;
+
+    cursor: pointer;
+}

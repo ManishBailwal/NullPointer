@@ -1,0 +1,44 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: rgb(28, 26, 26);
+    height: 100vh;
+    padding-top:20px;
+    
+}
+
+
+
+.scontainer{
+    width:80%;
+    height:50px;
+    background-color: rgb(99, 91, 91);
+    margin-inline: auto;
+    border-radius: 4px;
+    margin-top:16px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:12px;
+    color:white
+    
+ 
+}
+
+.scontainer h2{
+    
+    font-weight: 800;
+    text-align: start;
+    
+}
+
+.qname{
+    width:300px;
+    text-align: start;
+}
+
