@@ -21,6 +21,7 @@ function Header() {
     <div> <Link to="/uploadproblem">UploadProblem</Link></div>
     
     <div><Link to="/playground">Playground</Link></div>
+    <div><Link to="/contest">Contest</Link></div>
    </div>
 
    </div>

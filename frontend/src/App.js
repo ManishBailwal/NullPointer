@@ -5,6 +5,7 @@ import Problems from "./pages/Problems";
 import Playground from "./pages/playground";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import UploadProblem from "./pages/uploadProblem";
+import Contest from "./pages/contest";
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path="/problems/:id" element={<Problems />} />
         <Route path="/playground" element={<Playground/>}/>
         <Route path="/uploadproblem" element={<UploadProblem/>}/>
+        <Route path="/contest" element={<Contest/>}/>
+
         
       </Routes>
     </Router>

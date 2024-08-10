@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styles from "./playground.module.css";
 import Editor from "@monaco-editor/react";
 import { languageTemplates } from "../constants/languages";
@@ -20,31 +20,38 @@ function Playground() {
       currentOutput: "N/A",
     },
   ]);
-//   const [allTestCases, setAllTestCases] = useState([]);
 
   useEffect(() => {
     setCode(languageTemplates[selectedLanguage].hello_world);
     
-    // Example of how input fields might be set up based on language
-    // You would adjust this based on your actual requirements
     if (selectedLanguage === "java") {
       setInputFields([{ id: 1, placeholder: "Enter input for Java program" }]);
     } else if (selectedLanguage === "python") {
       setInputFields([{ id: 1, placeholder: "Enter input for Python program" }]);
     }
-    // Add more conditions for other languages if needed
   }, [selectedLanguage]);
 
-  const handleRunCode = async () => {
+  const handleRunCode = useCallback(async () => {
     try {
       setOutput("EXECUTING...");
       setExecuted(true);
+
+      // Reset previous output and test case results
+      setTestCases((prevState) => {
+        return prevState.map((testCase) => ({
+          ...testCase,
+          currentOutput: "N/A", // Reset current output
+          passed: false, // Reset pass status
+        }));
+      });
+
       const response = await axios.post("http://localhost:5001/compile", {
         code: code,
         language: selectedLanguage,
         input: inputs[1] || "", // Adjust based on your input handling logic
       });
 
+      // Update the test cases with the new output
       setTestCases((prevState) => {
         return prevState.map((testCase) => {
           return {
@@ -56,17 +63,18 @@ function Playground() {
           };
         });
       });
+
       setOutput("EXECUTED");
     } catch (error) {
       console.log(error);
       setOutput(error?.response?.data?.error || "Error executing code");
     }
-  };
+  }, [code, inputs, selectedLanguage]);
 
   return (
     <div>
       <Header />
-      <div className={styles.second} bg-white rounded-md text-black flex flex-col gap-4>
+      <div className={`${styles.second} bg-white rounded-md text-black flex flex-col gap-4`}>
         <div className="bg-white rounded-md p-2 text-black flex gap-4">
           Language:
           <select onChange={(e) => setSelectedLanguage(e.target.value)}>

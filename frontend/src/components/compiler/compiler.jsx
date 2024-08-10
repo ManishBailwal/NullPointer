@@ -64,37 +64,37 @@ function Compiler() {
     setCode(languageTemplates[selectedLanguage].hello_world);
   }, [selectedLanguage]);
 
-  const handleRunCode = async () => {
-    try {
-      setOutput("EXECUTING...");
-      setExecuted(true);
-      const response = await axios.post("http://localhost:5001/compile", {
-        code: code,
-        language: selectedLanguage,
-        input: testCases[0].input,
-      });
-      console.log(response.data.output, testCases[0].output);
-      const test = "asfd";
-      test.trim();
+  //   const handleRunCode = async () => {
+  //   try {
+  //     setOutput("EXECUTING...");
+  //     setExecuted(true);
+  //     const response = await axios.post("http://localhost:5001/compile", {
+  //       code: code,
+  //       language: selectedLanguage,
+  //       input: testCases[0].input,
+  //     });
+  //     console.log(response.data.output, testCases[0].output);
+  //     const test = "asfd";
+  //     test.trim();
 
-      setTestCases((prevState) => {
-        return prevState.map((testCase) => {
-          return {
-            ...testCase,
-            currentOutput: response.data.output,
-            passed:
-              response.data.output.toString().trim() ===
-              testCase.output.toString().trim(),
-          };
-        });
-      });
-      setOutput("EXECUTED");
-    } catch (error) {
-      console.log(error);
+  //     setTestCases((prevState) => {
+  //       return prevState.map((testCase) => {
+  //         return {
+  //           ...testCase,
+  //           currentOutput: response.data.output,
+  //           passed:
+  //             response.data.output.toString().trim() ===
+  //             testCase.output.toString().trim(),
+  //         };
+  //       });
+  //     });
+  //     setOutput("EXECUTED");
+  //   } catch (error) {
+  //     console.log(error);
       
-      setOutput(error?.response?.data?.error);
-    }
-  };
+  //     setOutput(error?.response?.data?.error);
+  //   }
+  // };
 
   console.log(currprob);
 
@@ -114,8 +114,7 @@ function Compiler() {
 
           // Check if the output matches the expected output
           const passed =
-            response.data.output.toString().trim() ===
-            testCase.output.toString().trim();
+            response.data.output.toString().trim() === testCase.output.toString().trim();
 
           return {
             ...testCase,
@@ -167,12 +166,7 @@ function Compiler() {
             <option value="java">Java</option>
             {/* <option value="python">Python</option> */}
           </select>
-          <button
-            className="bg-green-600 w-24 p-2 text-white rounded-sm"
-            onClick={handleRunCode}
-          >
-            Run
-          </button>
+          
           <button
             className="bg-green-600 w-24 p-2 text-white rounded-sm"
             onClick={handleRunSubmit}
