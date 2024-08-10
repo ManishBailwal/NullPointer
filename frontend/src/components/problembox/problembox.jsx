@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./problembox.module.css";
 import { problems } from "../../constants/problems";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Problembox() {
+
+ const [allProlblems, setallProblems] = useState({
+
+
+
+ })
+
+ useEffect(()=>{
+
+  const tempData = localStorage.getItem("formData")
+  setallProblems({
+    ...problems, ...JSON.parse(tempData)
+  })
+
+
+ },[])
+
+console.log(allProlblems)
   return (
     <div className={`${styles.container} `}>
-      {Object.keys(problems).map((key) => {
-        const problem = problems[key];
+      {Object.keys(allProlblems).map((key) => {
+        const problem = allProlblems[key];
         return (
           <Link to={`/problems/${key}`}>
             <div

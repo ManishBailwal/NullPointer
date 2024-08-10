@@ -2,7 +2,7 @@ export const problems = {
   three_sum: {
     id: 1,
     name: "Three Sum",
-    questions:
+    question:
       "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
     description:
       "You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.",
@@ -18,7 +18,7 @@ export const problems = {
   two_sum: {
     id: 1,
     name: "Two Sum",
-    questions:
+    question:
       "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.",
     description:
       "You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.",
@@ -34,7 +34,8 @@ export const problems = {
   },
   reverse_string: {
     id: 2,
-    questions:
+    name: "FOur Sum",
+    question:
       "Write a function that reverses a string. The input string is given as an array of characters s. lorem",
     description:
       "You must do this by modifying the input array in-place with O(1) extra memory. If you want to include the problem name in your frontend without changing the format of your existing data rendering, you can do so by adding it directly in your JSX code. This can be achieved by adding a hardcoded label or value for the question name while keeping the existing format for displaying th If you are dynamically rendering different problems and want to include the name from the data, you would need to include the problem name in your data structure and render it accordingly. However, e data.",
@@ -52,7 +53,8 @@ export const problems = {
   },
   palindrome_number: {
     id: 3,
-    questions:
+    name: "Five Sum",
+    question:
       "Given an integer x, return true if x is a palindrome, and false otherwise.",
     description:
       "An integer is a palindrome when it reads the same forward and backward. For example, 121 is a palindrome while 123 is not.",
@@ -65,7 +67,8 @@ export const problems = {
   },
   valid_parentheses: {
     id: 4,
-    questions:
+    name: "Six Sum",
+    question:
       "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.",
     description:
       "An input string is valid if open brackets are closed by the same type of brackets, open brackets are closed in the correct order, and every close bracket has a corresponding open bracket of the same type.",
@@ -80,6 +83,7 @@ export const problems = {
   },
   merge_two_sorted_lists: {
     id: 5,
+    name: "Eleven Sum",
     questions:
       "Merge two sorted linked lists and return it as a sorted list. The list should be made by splicing together the nodes of the first two lists.",
     description:

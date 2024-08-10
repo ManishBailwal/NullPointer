@@ -24,17 +24,31 @@ function Compiler() {
       currentOutput: "N/A",
     },
   ]);
+  const [allProlblems, setallProblems] = useState({
 
+
+
+  })
+ 
+  useEffect(()=>{
+ 
+   const tempData = localStorage.getItem("formData")
+   setallProblems({
+     ...problems, ...JSON.parse(tempData)
+   })
+ 
+ 
+  },[])
   const [allTestCases, setAllTestCases] = useState([]);
 
   const { id } = useParams();
 
   useEffect(() => {
-    if (problems[id]) {
-      setcurrprob(problems[id]);
-      setTestCases([problems[id]?.inputTestCases[0]]);
+    if (allProlblems[id]) {
+      setcurrprob(allProlblems[id]);
+      setTestCases([allProlblems[id]?.inputTestCases[0]]);
       setAllTestCases(
-        problems[id]?.inputTestCases.map((testCase) => ({
+        allProlblems[id]?.inputTestCases.map((testCase) => ({
           input: testCase.input,
           output: testCase.output,
           passed: false,
@@ -42,7 +56,9 @@ function Compiler() {
         }))
       );
     }
-  }, [id]);
+  }, [id,allProlblems]);
+
+  console.log(currprob);
 
   useEffect(() => {
     setCode(languageTemplates[selectedLanguage].hello_world);
@@ -75,7 +91,7 @@ function Compiler() {
       setOutput("EXECUTED");
     } catch (error) {
       console.log(error);
-      setExecuted(false);
+      
       setOutput(error?.response?.data?.error);
     }
   };
@@ -114,7 +130,7 @@ function Compiler() {
       setOutput("EXECUTED");
     } catch (error) {
       console.log(error);
-      setExecuted(false);
+     
       setOutput(error?.response?.data?.error);
     }
   };
@@ -124,7 +140,7 @@ function Compiler() {
       <div className={styles.first}>
         <div className={styles.heading}>{currprob?.name}</div>
 
-        <div>{currprob?.questions}</div>
+        <div>{currprob?.question}</div>
         <hr></hr>
 
         <div>{currprob?.description}</div>

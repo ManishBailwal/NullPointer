@@ -1,0 +1,15 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.second {
+    width: 100%;
+    height: 100vh;
+  }
+
+  pre {
+    white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+    word-wrap: break-word; /* Handle long words */
+  }

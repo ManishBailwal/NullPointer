@@ -6,8 +6,9 @@
 
 .container{
     background-color: rgb(28, 26, 26);
-    height: 100vh;
+  
     padding-top:20px;
+    padding-bottom:20px;
     
 }
 

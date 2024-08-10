@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './header.module.css'
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom'
-import { problems } from '../../constants/problems'
+
 
 
 function Header() {
@@ -18,8 +18,9 @@ function Header() {
    <div className={styles.container}>
 
     <div> <Link to="/">Problems</Link></div>
-    <div>Contest</div>
-    <div>Profile</div>
+    <div> <Link to="/uploadproblem">UploadProblem</Link></div>
+    
+    <div><Link to="/playground">Playground</Link></div>
    </div>
 
    </div>
