@@ -30,8 +30,8 @@ app.post("/compile", async (req, res) => {
     compile.on("close", (code) => {
       if (code !== 0) {
         // Compilation failed
-        fs.unlinkSync(inputFileName);
-        return res.status(500).json({ error: "Compilation failed" });
+       // fs.unlinkSync(inputFileName);
+        return res.status(500).json({ error || "Compilation failed" });
       }
 
       // Execute Java code
